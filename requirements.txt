@@ -1,0 +1,7 @@
+opencv-python
+pillow
+numpy
+requests
+scikit-learn
+crewai
+python-dotenv
