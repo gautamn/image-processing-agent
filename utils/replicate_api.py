@@ -1,18 +1,18 @@
-import requests
 import os
 import base64
 import requests
 from io import BytesIO
 from utils.s3_upload import upload_to_s3
 from PIL import Image
+from dotenv import load_dotenv
+load_dotenv()
 
-REPLICATE_API_TOKEN = os.getenv("REPLICATE_API_TOKEN")
-os.environ["REPLICATE_API_TOKEN"] = REPLICATE_API_TOKEN
+os.environ["REPLICATE_API_TOKEN"]=os.getenv("REPLICATE_API_TOKEN")
 
 def remove_background(image_url):
     print(f"remove background input image_url: {image_url}")
     headers = {
-        "Authorization": f"Bearer {REPLICATE_API_TOKEN}",
+        "Authorization": f"Bearer {os.getenv("REPLICATE_API_TOKEN")}",
         "Content-Type": "application/json",
         "Prefer": "wait"
     }
@@ -26,9 +26,8 @@ def remove_background(image_url):
 
 def upscale_image(image_url):
     print(f"upscale input image image_url: {image_url}")
-    os.environ["REPLICATE_API_TOKEN"] = REPLICATE_API_TOKEN
     headers = {
-        "Authorization": f"Bearer {REPLICATE_API_TOKEN}",
+        "Authorization": f"Bearer {os.getenv("REPLICATE_API_TOKEN")}",
         "Content-Type": "application/json",
         "Prefer": "wait"
     }

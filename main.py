@@ -1,7 +1,7 @@
 import os
 
 from langtrace_python_sdk import langtrace
-langtrace.init(api_key = os.getenv("LANGTRACE_API_KEY"))
+langtrace.init(api_key="cec4795f92d33cfe1275f71f1869f8c30f768fd736ca84d4517b1aa5d367c49a")
 
 from crewai import Crew
 from agent_config.image_loader_agent import image_loader_agent

@@ -4,7 +4,6 @@ import requests
 from io import BytesIO
 import base64
 
-from envs.njc.DLLs.pyexpat import features
 import json, re
 
 from utils.image_details import ImageDetails
@@ -12,7 +11,7 @@ from utils.image_details import ImageDetails
 
 def get_decision_task(agent, image_details: ImageDetails):
     image_features = image_details.features
-    if features:
+    if image_features:
         print(f"success in getting image features: {image_features}")
     else:
         print("❌ Could not parse valid JSON.")
